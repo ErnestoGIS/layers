@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LOCATION</title>
+    <style>
+
+      #map {
+        height: 100%;
+      }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+
+      function initMap() {
+        var guadalajara = {lat: 20.659766, lng: -103.354143}
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center : guadalajara
+
+        });
+
+        var contentString = '<div class="content">'
+              + '<b>AUTO  TODO</b> ' +   '<b>MEXICANA</b>  ' + '<b>GUADALAJARA</b>'
+              + '<p> Dirección: Av. España Esq. Rusia No. 1132 </p> '+ '<p> Col.Moderna. C.P. 44190, Guadalajara, Jalisco </p>' +
+              '<p> Correo electrónico: sucursal_guadalajara@autotodo.com </p>'+ '<p> Teléfono:  (33) 3619 5717 </p>' +'</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+              position: guadalajara,
+              map: map,
+              title: 'guadalajara'
+            });
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+          }
+
+
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRAVqLwfPFyNjj6FE_5i5W-tLVH0LZXbI&callback=initMap">
+
+        </script>
+
+  </body>
+</html>

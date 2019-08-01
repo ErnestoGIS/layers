@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LOCATION</title>
+    <style>
+
+      #map {
+        height: 100%;
+      }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+
+      function initMap() {
+        var sur = {lat: 19.358492, lng: -99.033037}
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center : sur
+
+        });
+
+        var contentString = '<div class="content">'
+              + '<b>AUTO  TODO</b> ' +   '<b>MEXICANA</b>  ' + '<b>MÉXICO SUR</b>'
+              + '<p> Dirección:  Calle Venustiano Carranza No. Manzana 19, Lote 29 Zona 1 </p> '+ '<p> Col. Santa María Aztahuacan, Delegación Iztapalapa Ciudad de México CP 09570 </p>' +
+              '<p> Correo electrónico: sucursal_mexicosur@autotodo.com </p>'+ '<p> Teléfono:  (55) 5600 2900 </p>' +'</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+              position: sur,
+              map: map,
+              title: 'sur'
+            });
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+          }
+
+
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRAVqLwfPFyNjj6FE_5i5W-tLVH0LZXbI&callback=initMap">
+
+        </script>
+
+  </body>
+</html>

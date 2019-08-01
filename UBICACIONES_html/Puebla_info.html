@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LOCATION</title>
+    <style>
+
+      #map {
+        height: 100%;
+      }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+
+
+      function initMap() {
+        var puebla = {lat: 19.102358, lng: -98.234344}
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center : puebla
+
+        });
+
+        var contentString = '<div class="content">'
+              + '<b>AUTO  TODO</b> ' +   '<b>MEXICANA</b>  ' + '<b>PUEBLA</b>'
+              + '<p>Dirección: Autopista México Puebla No. 7532</p>'+ '<p> Col. Moratilla. C.P. 72110, Puebla Puebla </p>' +
+              '<p>Correo electrónico: sucursal_puebla@autotodo.com</p>'+ '<p>Teléfono: (222) 223 5000</p>' +'</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+              position: puebla,
+              map: map,
+              title: 'puebla'
+            });
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+          }
+
+
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRAVqLwfPFyNjj6FE_5i5W-tLVH0LZXbI&callback=initMap">
+
+        </script>
+
+  </body>
+</html>

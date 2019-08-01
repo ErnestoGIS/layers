@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LOCATION</title>
+    <style>
+
+      #map {
+        height: 100%;
+      }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+
+      function initMap() {
+        var toluca = {lat: 19.290558, lng: -99.545335}
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center : toluca
+
+        });
+
+        var contentString = '<div class="content">'
+              + '<b>AUTO  TODO</b> ' +   '<b>MEXICANA</b>  ' + '<b>TOLUCA</b>'
+              + '<p> Dirección:  Av. de los Sauces, Bodega 5, entre carretera Mexico-Toluca, km 53.5 y Blv de la Ind. Automotriz. </p> '+ '<p> Parque Industrial Lerma. C.P. 52000, Lerma de Villada </p>' +
+              '<p> Correo electrónico: sucursal_toluca@autotodo.com </p>'+ '<p> Teléfono:  (728) 2847303  </p>' +'</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+              position: toluca,
+              map: map,
+              title: 'toluca'
+            });
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+          }
+
+
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRAVqLwfPFyNjj6FE_5i5W-tLVH0LZXbI&callback=initMap">
+
+        </script>
+
+  </body>
+</html>
